@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Beauty and Style: uñas, maquillaje, cejas y pestañas." />
+  <title>Beauty and Style | Uñas y Maquillaje</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rosa:#d889a4;
+      --rosa-fuerte:#b85f7f;
+      --rosa-claro:#fae8ef;
+      --crema:#fffaf7;
+      --dorado:#c9a46c;
+      --texto:#2f2730;
+      --gris:#6c616a;
+      --blanco:#ffffff;
+      --sombra:0 18px 50px rgba(100,52,73,.14);
+      --radio:24px;
+    }
+    *{box-sizing:border-box; scroll-behavior:smooth}
+    body{margin:0;font-family:"DM Sans",sans-serif;color:var(--texto);background:var(--crema)}
+    a{text-decoration:none;color:inherit}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    .contenedor{width:min(1120px,92%);margin:auto}
+    .barra{position:sticky;top:0;z-index:20;background:rgba(255,250,247,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(184,95,127,.12)}
+    nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{font-family:"Playfair Display",serif;font-size:1.55rem;font-weight:700}.logo span{color:var(--rosa-fuerte)}
+    .menu{display:flex;align-items:center;gap:22px;font-size:.95rem}.menu a:hover{color:var(--rosa-fuerte)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:14px 22px;font-weight:700;cursor:pointer;transition:.25s;background:linear-gradient(135deg,var(--rosa),var(--rosa-fuerte));color:#fff;box-shadow:0 12px 30px rgba(184,95,127,.22)}
+    .btn:hover{transform:translateY(-2px)}.btn.secundario{background:#fff;color:var(--rosa-fuerte);border:1px solid rgba(184,95,127,.25);box-shadow:none}
+    .hero{padding:68px 0 74px;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:54px}
+    .etiqueta{display:inline-block;padding:8px 14px;border-radius:999px;background:var(--rosa-claro);color:var(--rosa-fuerte);font-size:.86rem;font-weight:700;margin-bottom:20px}
+    h1,h2,h3{font-family:"Playfair Display",serif;margin-top:0}h1{font-size:clamp(3rem,6vw,5.4rem);line-height:.98;margin-bottom:22px}h1 em{color:var(--rosa-fuerte);font-style:normal}
+    .hero p{font-size:1.08rem;line-height:1.75;color:var(--gris);max-width:620px}.acciones{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+    .hero-visual{position:relative;min-height:520px}.foto-principal{position:absolute;inset:0 0 0 60px;border-radius:44px;overflow:hidden;box-shadow:var(--sombra)}
+    .tarjeta-flotante{position:absolute;left:0;bottom:35px;background:#fff;border-radius:22px;padding:18px 20px;width:220px;box-shadow:var(--sombra)}
+    .tarjeta-flotante strong{display:block;font-size:1.1rem;margin-bottom:5px}.estrellas{color:#d49a3d;letter-spacing:3px}
+    .seccion{padding:88px 0}.seccion.rosa{background:linear-gradient(180deg,#fff5f8,#fffaf7)}
+    .titulo-seccion{text-align:center;max-width:700px;margin:0 auto 44px}.titulo-seccion h2{font-size:clamp(2.2rem,4vw,3.5rem);margin-bottom:14px}.titulo-seccion p{color:var(--gris);line-height:1.7}
+    .servicios{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.servicio{background:#fff;border-radius:var(--radio);padding:28px;box-shadow:0 12px 34px rgba(79,42,58,.08);border:1px solid rgba(184,95,127,.08);transition:.25s}.servicio:hover{transform:translateY(-6px)}
+    .icono{width:54px;height:54px;border-radius:18px;background:var(--rosa-claro);display:grid;place-items:center;font-size:1.65rem;margin-bottom:20px}.servicio h3{font-size:1.45rem;margin-bottom:10px}.servicio p{color:var(--gris);line-height:1.65;min-height:80px}
+    .precio{display:flex;align-items:center;justify-content:space-between;margin-top:20px}.precio strong,.mini-btn{color:var(--rosa-fuerte);font-weight:700}
+    .galeria{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:210px;gap:16px}.galeria figure{margin:0;border-radius:22px;overflow:hidden;position:relative}.galeria figure::after{content:attr(data-titulo);position:absolute;inset:auto 12px 12px 12px;background:rgba(255,255,255,.87);backdrop-filter:blur(8px);padding:10px 13px;border-radius:14px;font-weight:700}
+    .g1{grid-column:span 7;grid-row:span 2}.g2{grid-column:span 5}.g3{grid-column:span 5}.g4,.g5,.g6{grid-column:span 4}
+    .promo{background:linear-gradient(135deg,#2f2730,#5b3d4a);color:#fff;border-radius:34px;padding:54px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:30px;box-shadow:var(--sombra)}.promo h2{font-size:clamp(2.3rem,4vw,3.8rem);margin-bottom:16px}.promo p{color:#eadde3;line-height:1.7}.promo-box{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);padding:28px;border-radius:24px}.promo-box .numero{font-size:3.2rem;font-family:"Playfair Display",serif;color:#ffd7e5}
+    .nosotros{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:center}.nosotros .imagen{height:520px;border-radius:34px;overflow:hidden;box-shadow:var(--sombra)}.nosotros h2{font-size:clamp(2.2rem,4vw,3.5rem)}.nosotros p{color:var(--gris);line-height:1.75}.valores{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px}.valor{background:#fff;padding:15px 16px;border-radius:16px;border:1px solid rgba(184,95,127,.1);font-weight:600}
+    .reserva{display:grid;grid-template-columns:.8fr 1.2fr;gap:34px;align-items:start}.reserva-info{background:var(--rosa-claro);padding:34px;border-radius:28px}.reserva-info h2{font-size:2.5rem}.reserva-info p{color:var(--gris);line-height:1.7}
+    form{background:#fff;padding:34px;border-radius:28px;box-shadow:var(--sombra)}.campos{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}label{font-size:.9rem;font-weight:700;display:block;margin-bottom:7px}input,select,textarea{width:100%;padding:14px 15px;border-radius:14px;border:1px solid #e9dce2;background:#fffdfd;font:inherit;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--rosa)}textarea{min-height:110px;resize:vertical}.campo-completo{grid-column:1/-1}.form-btn{width:100%;margin-top:18px}
+    footer{background:#211b20;color:#fff;padding:54px 0 24px}.footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:34px}footer p,footer a{color:#cfc4ca}.copy{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);text-align:center;font-size:.9rem}
+    .whatsapp{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:white;font-size:1.6rem;box-shadow:0 14px 30px rgba(0,0,0,.2);z-index:30}.menu-btn{display:none;background:none;border:0;font-size:1.8rem}
+    @media(max-width:900px){.menu-btn{display:block}.menu{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;padding:20px;flex-direction:column;border-bottom:1px solid #eee}.menu.abierto{display:flex}.hero-grid,.promo,.nosotros,.reserva{grid-template-columns:1fr}.hero-visual{min-height:430px}.foto-principal{left:25px}.servicios{grid-template-columns:repeat(2,1fr)}.g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 6;grid-row:span 1}.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.hero{padding-top:44px}h1{font-size:3.25rem}.servicios{grid-template-columns:1fr}.galeria{grid-template-columns:1fr;grid-auto-rows:240px}.g1,.g2,.g3,.g4,.g5,.g6{grid-column:auto}.promo{padding:32px 24px}.nosotros .imagen{height:380px}.campos{grid-template-columns:1fr}.campo-completo{grid-column:auto}.footer-grid{grid-template-columns:1fr}.tarjeta-flotante{width:190px}}
+  </style>
+</head>
+<body>
+  <header class="barra">
+    <nav class="contenedor">
+      <a href="#inicio" class="logo">Beauty <span>& Style</span></a>
+      <button class="menu-btn" aria-label="Abrir menú" onclick="document.querySelector('.menu').classList.toggle('abierto')">☰</button>
+      <div class="menu"><a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#galeria">Galería</a><a href="#nosotros">Nosotros</a><a href="#reservas" class="btn">Reservar cita</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="inicio"><div class="contenedor hero-grid"><div><span class="etiqueta">Uñas · Maquillaje · Cejas · Pestañas</span><h1>Tu belleza, tu <em>estilo</em>.</h1><p>En Beauty and Style convertimos cada cita en una experiencia especial. Diseños de uñas, maquillaje profesional y detalles que resaltan lo mejor de ti.</p><div class="acciones"><a href="#reservas" class="btn">Reservar mi cita</a><a href="#servicios" class="btn secundario">Ver servicios</a></div></div><div class="hero-visual"><div class="foto-principal"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403caa?auto=format&fit=crop&w=1000&q=85" alt="Productos de maquillaje"></div><div class="tarjeta-flotante"><div class="estrellas">★★★★★</div><strong>Experiencia premium</strong><span>Atención personalizada</span></div></div></div></section>
+    <section class="seccion rosa" id="servicios"><div class="contenedor"><div class="titulo-seccion"><span class="etiqueta">Nuestros servicios</span><h2>Todo para hacerte brillar</h2><p>Servicios pensados para cada ocasión, realizados con dedicación, higiene y productos de calidad.</p></div><div class="servicios">
+      <article class="servicio"><div class="icono">💅</div><h3>Uñas acrílicas</h3><p>Extensiones resistentes, elegantes y personalizadas según tu estilo.</p><div class="precio"><strong>Desde $20</strong><a href="#reservas" class="mini-btn">Reservar →</a></div></article>
+      <article class="servicio"><div class="icono">✨</div><h3>Semipermanente</h3><p>Color brillante y duradero con acabado profesional.</p><div class="precio"><strong>Desde $12</strong><a href="#reservas" class="mini-btn">Reservar →</a></div></article>
+      <article class="servicio"><div class="icono">💄</div><h3>Maquillaje social</h3><p>Look personalizado para fiestas, graduaciones y eventos.</p><div class="precio"><strong>Desde $25</strong><a href="#reservas" class="mini-btn">Reservar →</a></div></article>
+      <article class="servicio"><div class="icono">👰</div><h3>Maquillaje de novia</h3><p>Preparación especial para que luzcas radiante en tu gran día.</p><div class="precio"><strong>Desde $45</strong><a href="#reservas" class="mini-btn">Reservar →</a></div></article>
+      <article class="servicio"><div class="icono">👁️</div><h3>Cejas y pestañas</h3><p>Diseño de cejas y aplicación de pestañas para resaltar tu mirada.</p><div class="precio"><strong>Desde $10</strong><a href="#reservas" class="mini-btn">Reservar →</a></div></article>
+      <article class="servicio"><div class="icono">🌸</div><h3>Manicura y pedicura</h3><p>Cuidado completo, limpieza, hidratación y esmaltado.</p><div class="precio"><strong>Desde $15</strong><a href="#reservas" class="mini-btn">Reservar →</a></div></article>
+    </div></div></section>
+    <section class="seccion" id="galeria"><div class="contenedor"><div class="titulo-seccion"><span class="etiqueta">Galería</span><h2>Detalles que enamoran</h2><p>Una muestra del estilo y dedicación que ponemos en cada trabajo.</p></div><div class="galeria"><figure class="g1" data-titulo="Uñas elegantes"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1100&q=85" alt="Uñas profesionales"></figure><figure class="g2" data-titulo="Maquillaje profesional"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=900&q=85" alt="Maquillaje profesional"></figure><figure class="g3" data-titulo="Beauty look"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85" alt="Productos de belleza"></figure><figure class="g4" data-titulo="Diseños modernos"><img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=800&q=85" alt="Diseño de uñas"></figure><figure class="g5" data-titulo="Cuidado y detalle"><img src="https://images.unsplash.com/photo-1619451334792-150fd785ee74?auto=format&fit=crop&w=800&q=85" alt="Manicura"></figure><figure class="g6" data-titulo="Tu mejor versión"><img src="https://images.unsplash.com/photo-1503236823255-94609f598e71?auto=format&fit=crop&w=800&q=85" alt="Maquillaje"></figure></div></div></section>
+    <section class="seccion"><div class="contenedor"><div class="promo"><div><span class="etiqueta">Promoción del mes</span><h2>Ven con tu mejor amiga</h2><p>Reservando dos servicios de uñas reciben un diseño sencillo gratis. Una excusa perfecta para compartir, consentirse y estrenar nuevo look.</p><a href="#reservas" class="btn">Aprovechar promoción</a></div><div class="promo-box"><div class="numero">2×1</div><h3>En diseño sencillo</h3><p>Aplican condiciones. Consulta disponibilidad al reservar.</p></div></div></div></section>
+    <section class="seccion rosa" id="nosotros"><div class="contenedor nosotros"><div class="imagen"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=85" alt="Salón de belleza"></div><div><span class="etiqueta">Sobre nosotros</span><h2>Un espacio creado para ti</h2><p>Beauty and Style nació para ofrecer una experiencia femenina, cómoda y profesional. Nos enfocamos en cada detalle para que salgas feliz, segura y con un estilo que te represente.</p><div class="valores"><div class="valor">✓ Atención personalizada</div><div class="valor">✓ Productos de calidad</div><div class="valor">✓ Higiene y seguridad</div><div class="valor">✓ Diseños modernos</div></div></div></div></section>
+    <section class="seccion" id="reservas"><div class="contenedor reserva"><div class="reserva-info"><span class="etiqueta">Agenda tu cita</span><h2>Reserva fácil y rápido</h2><p>Completa tus datos y se abrirá WhatsApp con el mensaje de tu reserva listo para enviar.</p><p><strong>Horario:</strong><br>Lunes a sábado<br>09:00 – 19:00</p></div><form id="formReserva"><div class="campos"><div><label for="nombre">Nombre completo</label><input id="nombre" required placeholder="Tu nombre"></div><div><label for="telefono">Teléfono</label><input id="telefono" required placeholder="09XXXXXXXX"></div><div><label for="servicio">Servicio</label><select id="servicio" required><option value="">Selecciona</option><option>Uñas acrílicas</option><option>Semipermanente</option><option>Maquillaje social</option><option>Maquillaje de novia</option><option>Cejas y pestañas</option><option>Manicura y pedicura</option></select></div><div><label for="fecha">Fecha</label><input id="fecha" type="date" required></div><div class="campo-completo"><label for="mensaje">Mensaje adicional</label><textarea id="mensaje" placeholder="Cuéntanos qué estilo deseas..."></textarea></div></div><button class="btn form-btn" type="submit">Enviar reserva por WhatsApp</button></form></div></section>
+  </main>
+  <footer id="contacto"><div class="contenedor"><div class="footer-grid"><div><div class="logo">Beauty <span>& Style</span></div><p>Resalta tu belleza, expresa tu estilo.</p></div><div><h3>Contacto</h3><p>WhatsApp: agrega tu número</p><p>Dirección: agrega tu dirección</p><p>Quito, Ecuador</p></div><div><h3>Síguenos</h3><p><a href="#">Instagram</a></p><p><a href="#">Facebook</a></p><p><a href="#">TikTok</a></p></div></div><div class="copy">© 2026 Beauty and Style. Todos los derechos reservados.</div></div></footer>
+  <a class="whatsapp" href="#reservas" aria-label="Reservar por WhatsApp">✆</a>
+  <script>
+    document.getElementById('formReserva').addEventListener('submit', function(e){e.preventDefault();const nombre=document.getElementById('nombre').value;const telefono=document.getElementById('telefono').value;const servicio=document.getElementById('servicio').value;const fecha=document.getElementById('fecha').value;const mensaje=document.getElementById('mensaje').value;const texto=`Hola Beauty and Style, deseo reservar una cita.%0A%0A👤 Nombre: ${encodeURIComponent(nombre)}%0A📱 Teléfono: ${encodeURIComponent(telefono)}%0A💖 Servicio: ${encodeURIComponent(servicio)}%0A📅 Fecha: ${encodeURIComponent(fecha)}%0A📝 Detalles: ${encodeURIComponent(mensaje || 'Sin detalles adicionales')}`;window.open(`https://wa.me/?text=${texto}`,'_blank');});
+  </script>
+</body>
+</html>
